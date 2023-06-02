@@ -1,9 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  typescript: {
+    // Set this to false if you want production builds to abort if there's type errors
+    ignoreBuildErrors: process.env.VERCEL_ENV === "production",
+  },
   eslint: {
-    // Warning: This allows production builds to successfully complete even if
-    // your project has ESLint errors.
-    ignoreDuringBuilds: true,
+    /// Set this to false if you want production builds to abort if there's lint errors
+    ignoreDuringBuilds: process.env.VERCEL_ENV === "production",
   },
 };
 
